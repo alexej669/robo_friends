@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Cardlist from './Cardlist';
-import {robots} from './robots';
 import Searchbox from './Searchbox';
 import './App.css'
 
@@ -9,16 +8,21 @@ class App extends Component{
 constructor(){
 	super()
 	this.state = {
-	robots:robots, Searchbar:''
+	robots:[], 
+	Searchbar:''
 	}
 }
 
-onSearchChange=(event)=>{
-	this.setState({Searchbar: event.target.value})
-	// console.log(this.state.Searchbar)
+componentDidMound() {
+	const k = fetch('https://jsonplaceholder.typicode.com/users')
+	.then(response=> response.json())
+	// .then(users=>this.setState({robots:users}));
+console.log(k);
+}
 
-	
-	
+
+onSearchChange=(event)=>{
+	this.setState({Searchbar: event.target.value})	
 
 }
  render(){
