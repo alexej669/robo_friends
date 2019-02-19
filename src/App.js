@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Cardlist from './Cardlist';
 import Searchbox from './Searchbox';
 import './App.css'
+import Scroll from './Scroll'
 
 
 class App extends Component{
@@ -33,7 +34,9 @@ fetch('https://jsonplaceholder.typicode.com/users').then(Response=>Response.json
  		<div className ='tc'>
  			<h1 className = 'f1'> Robofriends </h1>
  			<Searchbox searchChange = {this.onSearchChange}/>
- 			<Cardlist robots ={filteredRobots}/>
+ 			<Scroll>
+ 				<Cardlist robots ={filteredRobots}/>
+ 			</Scroll>
  		</div>
  	);
 
