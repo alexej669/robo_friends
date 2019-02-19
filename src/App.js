@@ -11,24 +11,24 @@ constructor(){
 	robots:[], 
 	Searchbar:''
 	}
+	
 }
 
-componentDidMound() {
-	const k = fetch('https://jsonplaceholder.typicode.com/users')
-	.then(response=> response.json())
-	// .then(users=>this.setState({robots:users}));
-console.log(k);
-}
 
 
 onSearchChange=(event)=>{
 	this.setState({Searchbar: event.target.value})	
-
 }
+
+componentDidMount() {
+fetch('https://jsonplaceholder.typicode.com/users').then(Response=>Response.json())
+.then(Users=>this.setState({robots:Users}))}
+
  render(){
  	const filteredRobots = this.state.robots.filter(robot=>{
 		return robot.name.toLowerCase().includes(this.state.Searchbar.toLowerCase())
 	})
+	
   	return(
  		<div className ='tc'>
  			<h1 className = 'f1'> Robofriends </h1>
@@ -36,6 +36,7 @@ onSearchChange=(event)=>{
  			<Cardlist robots ={filteredRobots}/>
  		</div>
  	);
+
  }
 }
 
