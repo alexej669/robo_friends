@@ -30,7 +30,8 @@ fetch('https://jsonplaceholder.typicode.com/users').then(Response=>Response.json
 		return robot.name.toLowerCase().includes(this.state.Searchbar.toLowerCase())
 	})
 	
-  	return(
+  	return !this.state.robots.length?
+  	<h1> Loading </h1> :(
  		<div className ='tc'>
  			<h1 className = 'f1'> Robofriends </h1>
  			<Searchbox searchChange = {this.onSearchChange}/>
